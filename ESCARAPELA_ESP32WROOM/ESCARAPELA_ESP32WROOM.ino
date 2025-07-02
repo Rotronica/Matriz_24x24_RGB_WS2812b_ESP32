@@ -1,4 +1,4 @@
- #include <FastLED.h>
+#include <FastLED.h>
 #include "escarapela.h"
 #include "bandera.h"
 #include "escudo.h"
@@ -34,7 +34,7 @@ void loop() {
   // 3. ESCUDO - Solo parpadeo 4 veces
   mostrarEscudo();
   
-  // 4. MENSAJE - Scroll de izquierda a derecha 3 veces
+  // 4. MENSAJE - Scroll de abajo hacia arriba 3 veces
   mostrarMensaje();
   
   // Pausa antes de repetir todo el ciclo
@@ -91,7 +91,7 @@ void mostrarMensaje() {
   FastLED.show();
   delay(500);
   
-  // Scroll de izquierda a derecha 3 veces
+  // Scroll de abajo hacia arriba 3 veces
   scrollMensaje(3);   //scrollMensaje(veces)
 }
 
@@ -99,18 +99,12 @@ void mostrarMensaje() {
 
 // Función optimizada para animar por colores
 void animarColor(const uint32_t* array, uint32_t colorObjetivo, int velocidad) {
-  bool huboCambio = false;
   for (int i = 0; i < NUM_LEDS; i++) {
     uint32_t colorPixel = array[i];
     if (colorPixel == colorObjetivo) {
       leds[i] = CRGB((colorPixel >> 16) & 0xFF, (colorPixel >> 8) & 0xFF, colorPixel & 0xFF);
-      huboCambio = true;
-    }
-    // Solo mostrar cuando haya un cambio
-    if (huboCambio) {
       FastLED.show();
       delay(velocidad);
-      huboCambio = false;
     }
   }
   delay(300); // Pausa corta al terminar cada color
@@ -133,29 +127,29 @@ void parpadearImagen(const uint32_t* array, int veces, int duracion) {
   }
 }
 
-// Scroll del mensaje de izquierda a derecha
+// Scroll del mensaje de abajo hacia arriba
 void scrollMensaje(int veces) {
   const int ANCHO = 24; // Ancho de la matriz
   const int ALTO = 24;  // Alto de la matriz
-  
+
   for (int ciclo = 0; ciclo < veces; ciclo++) {
-    // Scroll de izquierda a derecha
-    for (int offset = 0; offset < ANCHO; offset++) {
+    // Scroll de abajo hacia arriba
+    for (int offset = 0; offset < ALTO; offset++) {
       FastLED.clear();
-      
-      // Copiar el mensaje con offset
+
+      // Copiar el mensaje con offset en filas
       for (int fila = 0; fila < ALTO; fila++) {
         for (int col = 0; col < ANCHO; col++) {
           int posOriginal = fila * ANCHO + col;
-          int posDestino = fila * ANCHO + (col + offset) % ANCHO;
-          
+          int posDestino = ((fila + offset) % ALTO) * ANCHO + col;
+
           if (posDestino < NUM_LEDS) {
             uint32_t colorPixel = ledarray3[posOriginal];
             leds[posDestino] = CRGB((colorPixel >> 16) & 0xFF, (colorPixel >> 8) & 0xFF, colorPixel & 0xFF);
           }
         }
       }
-      
+
       FastLED.show();
       delay(100); // Velocidad del scroll
     }
