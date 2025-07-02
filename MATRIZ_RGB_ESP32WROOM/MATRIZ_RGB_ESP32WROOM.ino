@@ -85,10 +85,10 @@ void mostrarEscudo() {
   delay(500);
   
   // Solo parpadeo 4 veces
-  parpadearImagen(ledarray2, 4, 1000);
+  parpadearImagen(ledarray2, 6, 1000);
 }
 
-// ===== FUNCIONES PARA MENSAJE =====
+// ===== FUNCIONES PARA MENSAJE 200 AÑOS =====
 void mostraMensaje_1(){
   //Apagar todos los LEDs
   FastLED.clear();
@@ -96,17 +96,18 @@ void mostraMensaje_1(){
   delay(500);
 
   //Scroll de arriba hacia abajo 3 veces
-  scrollMensaje(ledarray4,3);
+  scrollMensaje(ledarray4,4); //scrollMensaje(ARRAY_MENSAJE,veces)
 }
 
+// ===== FUNCIONES PARA MENSAJE ELT-ETN =====
 void mostrarMensaje_2() {
   // Apagar todos los LEDs
   FastLED.clear();
   FastLED.show();
   delay(500);
   
-  // Scroll de arriba hacia abajo 3 veces
-  scrollMensaje(ledarray3,3);   //scrollMensaje(veces)
+  // Scroll de arriba hacia abajo 5 veces
+  scrollMensaje(ledarray3,5);   //scrollMensaje(ARRAY_MENSAJE,veces)
 }
 
 // ===== FUNCIONES AUXILIARES =====
