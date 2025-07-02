@@ -54,7 +54,7 @@ void mostrarEscarapela() {
   animarColor(ledarray0, COLOR_VERDE, 10);
   
   // Parpadeo 3 veces
-  parpadearImagen(ledarray0, 3, 250);
+  parpadearImagen(ledarray0, 3, 1000);   //parpadearImagen(ledarray0, veces_parpadeo, duracion);
 }
 
 // ===== FUNCIONES PARA BANDERA =====
@@ -65,12 +65,12 @@ void mostrarBandera() {
   delay(500);
   
   // Animación por colores de la bandera
-  animarColor(ledarray1, COLOR_ROJO, 10);
+  animarColor(ledarray1, COLOR_ROJO, 10);   //animarColor(ledarray1, COLOR_ROJO, velocidad);
   animarColor(ledarray1, COLOR_AMARILLO, 10);
   animarColor(ledarray1, COLOR_VERDE, 10);
   
   // Parpadeo 3 veces
-  parpadearImagen(ledarray1, 3, 250);
+  parpadearImagen(ledarray1, 3, 1000);
 }
 
 // ===== FUNCIONES PARA ESCUDO =====
@@ -81,7 +81,7 @@ void mostrarEscudo() {
   delay(500);
   
   // Solo parpadeo 4 veces
-  parpadearImagen(ledarray2, 4, 300);
+  parpadearImagen(ledarray2, 4, 1000);
 }
 
 // ===== FUNCIONES PARA MENSAJE =====
@@ -92,7 +92,7 @@ void mostrarMensaje() {
   delay(500);
   
   // Scroll de izquierda a derecha 3 veces
-  scrollMensaje(3);
+  scrollMensaje(3);   //scrollMensaje(veces)
 }
 
 // ===== FUNCIONES AUXILIARES =====
