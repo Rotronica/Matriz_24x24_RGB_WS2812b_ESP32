@@ -21,6 +21,9 @@ void setup() {
   FastLED.addLeds<WS2812B, LED_PIN, GRB>(leds, NUM_LEDS);
   FastLED.setBrightness(BRIGHTNESS);
   Serial.begin(115200);
+  FastLED.clear();
+  FastLED.show();
+  delay(500);
 }
 
 void loop() {
