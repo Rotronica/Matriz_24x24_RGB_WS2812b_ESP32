@@ -1,17 +1,17 @@
-#include <FastLED.h>
+ #include <FastLED.h>
 #include "escarapela.h"
 #include "bandera.h"
 #include "escudo.h"
 #include "mensaje.h"
 #include <pgmspace.h>
 
-#define LED_PIN     2      // Pin de datos (puede ser GPIO5, 13, 18, etc. en ESP32)
+#define LED_PIN     2      // Pin de datos GPIO_2
 #define NUM_LEDS    576    // 24x24 = 576 LEDs
 #define BRIGHTNESS  40    // Brillo (0-255)
 
 CRGB leds[NUM_LEDS];
 
-// Colores de tu escarapela (en formato 0xRRGGBB)
+// Colores escarapela (en formato 0xRRGGBB)
 const uint32_t COLOR_ROJO = 0x00FF0000;
 const uint32_t COLOR_AMARILLO = 0x00FFFF00;
 const uint32_t COLOR_VERDE = 0x00006000;
