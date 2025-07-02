@@ -1,5 +1,5 @@
-#ifndef MENSAJE_H
-#define MENSAJE_H
+#ifndef MENSAJE2_H
+#define MENSAJE2_H
 
 #include <stdint.h>
 
